@@ -4,7 +4,9 @@ class Company < ActiveRecord::Base
 
     #Class method
     def self.oldest_company
-        self.all.min_by {|company| company.founding_year}
+        self.order(:founding_year).first
+        #Alternate code
+        # self.all.min_by {|company| company.founding_year}
     end
 
     #Instance method
